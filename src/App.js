@@ -101,8 +101,8 @@ const handleGameRestart = () => {
   setOpenedCards([])
   setMadched([])
   setMoves(0)
-  setMadchedCount(0)
   setArayCards(shuffle(pairOfArrayCards))
+  setMadchedCount(0)
 
 }
 
