@@ -43,6 +43,7 @@ export const App = () => {
 const [arrayCards, setArayCards] = useState([])
 const [openedCards, setOpenedCards] = useState([])
 const [matched, setMadched] = useState([])
+const [matchedCount, setMadchedCount] = useState(0)
 const [moves, setMoves] = useState(0)
 
 
@@ -87,6 +88,7 @@ useEffect(() => {
 
   if (secondMatched && firstMatched.id === secondMatched.id){
     setMadched([...matched, firstMatched.id])
+    setMadchedCount(prevMatchedCount => prevMatchedCount + 1)
   }
 
   if (openedCards.length === 2) setTimeout(() => setOpenedCards([]), 1000)
@@ -99,6 +101,7 @@ const handleGameRestart = () => {
   setOpenedCards([])
   setMadched([])
   setMoves(0)
+  setMadchedCount(0)
   setArayCards(shuffle(pairOfArrayCards))
 
 }
@@ -107,6 +110,7 @@ const handleGameRestart = () => {
 
   return (
     <div className="container">
+      <h1 className='win-text'>{`${matchedCount===6 ? 'Вы победили!' : ''}`}</h1>
       <p className='number-of-strokes'>Сделано ходов: {moves}</p>
       <div className='cards'>
         {arrayCards.map((item, index) => {
