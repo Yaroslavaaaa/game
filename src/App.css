@@ -86,6 +86,13 @@ body{
 }
 
 
+.win-text{
+  color: #fff;
+  text-align: center;
+}
+
+
+
 .card .back:hover, .button-restart:hover{
   background: #5e5e5e;
   transform: scale(1.02);
